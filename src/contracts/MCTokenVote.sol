@@ -60,7 +60,6 @@ contract TokenVote {
         require(_quorumPercent > 1000);
         require(_options.length < 20);
 
-
         proposer = _proposer;
         createdBlock = block.number;
         votingDelay = _votingDelay;
