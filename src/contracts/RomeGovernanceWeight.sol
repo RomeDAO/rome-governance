@@ -5,7 +5,7 @@ import "./interfaces/IRomeAuthority.sol";
 import "./interfaces/IsROME.sol";
 import "./interfaces/IConscription.sol";
 import "./types/RomeAccessControlled.sol";
-import "../test/utils/console.sol";
+// import "../test/utils/console.sol";
 
 contract RomeGovernanceWeight is RomeAccessControlled {
     /* ========== STATE VARIABLES ========== */
