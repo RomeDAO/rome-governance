@@ -28,33 +28,31 @@ console.log();
 {
   "strategies": [
     ["contract-call", {
-      // contract address
-      "address": "0x6887DF2f4296e8B772cb19479472A16E836dB9e0",
-      // output decimals
-      "decimals": 18,
-      // strategy symbol
-      "symbol": "mySCORE",
-      // arguments are passed to the method; "%{address}" is replaced with the voter's address; default value ["%{address}"]
-      "args": ["0x6887DF2f4296e8B772cb19479472A16E836dB9e0", "%{address}"], 
-      // method ABI, output type should be uint256
+      "address": "contract_address",
+      "decimals": 9,
+      "symbol": "voteROME",
+      "args": ["HOUSE_NAME or ROME", "%{address}"],
       "methodABI": {
-        "constant": true,
-        "inputs": [{
-          "internalType": "address",
-          "name": "_someAddress",
-          "type": "address"
-        }, {
-          "internalType": "address",
-          "name": "_voterAddress",
-          "type": "address"
-        }],
-        "name": "totalScoresFor",
-        "outputs": [{
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }],
-        "payable": false,
+        "inputs": [
+          {
+            "internalType": "string",
+            "name": "_house",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "_voter",
+            "type": "address"
+          }
+        ],
+        "name": "getGovernanceWeight",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
         "stateMutability": "view",
         "type": "function"
       }
