@@ -1,0 +1,54 @@
+{
+  "abi": [
+    {
+      "type": "function",
+      "name": "authority",
+      "inputs": [],
+      "outputs": [
+        {
+          "internalType": "contract IRomeAuthority",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "constant": null,
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "setAuthority",
+      "inputs": [
+        {
+          "internalType": "contract IRomeAuthority",
+          "name": "_newAuthority",
+          "type": "address"
+        }
+      ],
+      "outputs": [],
+      "constant": null,
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "event",
+      "name": "AuthorityUpdated",
+      "inputs": [
+        {
+          "name": "authority",
+          "type": "address",
+          "indexed": true
+        }
+      ],
+      "anonymous": false
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployed_bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  }
+}

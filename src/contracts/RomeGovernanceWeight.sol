@@ -5,10 +5,10 @@ import "./interfaces/IRomeAuthority.sol";
 import "./interfaces/IsROME.sol";
 import "./interfaces/IConscription.sol";
 import "./types/RomeAccessControlled.sol";
+import "../test/utils/console.sol";
 
 contract RomeGovernanceWeight is RomeAccessControlled {
     /* ========== STATE VARIABLES ========== */
-
     IsROME sROME;
     IConscription conscription;
 
@@ -25,11 +25,13 @@ contract RomeGovernanceWeight is RomeAccessControlled {
 
     /* ========== FUNCTIONS ========== */
 
-    function getGovernanceWeight(string calldata house, address voter) external view returns(uint) {
-        if (bytes32(bytes(house)) != conscription.profile(voter).house) {
+    function getGovernanceWeight(string calldata _house, address _voter) external view returns(uint) {        
+        ( ,bytes32 house, ,uint256 gons) = conscription.profiles(_voter);        
+        if (keccak256(abi.encodePacked(_house)) != keccak256(abi.encodePacked("ROME")) 
+        && bytes32(bytes(_house)) != house) {
             return 0;
         } else {
-            return sROME.balanceOf(voter) + sROME.balanceForGons(conscription.profile(voter).gons);            
+            return sROME.balanceOf(_voter) + sROME.balanceForGons(gons);
         }        
     }
 
